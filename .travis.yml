@@ -36,7 +36,7 @@ before_install:
   - chmod a+x ~/bin/repo
   - mkdir dragon
   - cd dragon
-  - repo init -y -u https://github.com/dragon-tc/DragonTC -b master
+  - yes "" | repo init -u https://github.com/dragon-tc/DragonTC -b master
   - repo sync -j2 -c -f
 
 before_script:
