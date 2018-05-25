@@ -51,7 +51,7 @@ script:
   - ./7.0 opt
   - cd ${HOME}/dtc
   - git add .
-  - git commit -m "first commit"
+  - git commit -m "dragon TC"
   - git remote add origin https://github.com/strakzkernel/dtc.git
   - git push -u origin master
   - strakzkernel
