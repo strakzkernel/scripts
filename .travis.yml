@@ -4,7 +4,7 @@ cache:
   ccache: true
   timeout: 40000
   directories:
-  - $HOME/out
+  - $HOME/dtc
 os:
   - linux
 
@@ -55,4 +55,4 @@ script:
   - git remote add origin https://github.com/strakzkernel/dtc.git
   - git push -u origin master
   - strakzkernel
-  - emergency
+  - emergency1
