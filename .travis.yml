@@ -34,8 +34,8 @@ before_install:
   - PATH=~/bin:$PATH
   - curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
   - chmod a+x ~/bin/repo
-  - mkdir dtc
-  - cd dtc
+  - mkdir dragon
+  - cd dragon
   - repo init -u https://github.com/dragon-tc/DragonTC -b master
   - repo sync -j2 -c -f
 
@@ -52,7 +52,7 @@ script:
   - export ARCH=arm64
   - cd build
   - ./7.0 opt
-  - cd ${HOME}/dtc
+  - cd ${HOME}/dragon
   - git add .
   - git commit -m "dragon TC"
   - git remote add origin https://github.com/strakzkernel/dtc.git
