@@ -29,8 +29,7 @@ before_install:
   - sudo apt-get install -y ccache &&echo 'export PATH="/usr/lib/ccache:$PATH"' | tee -a ~/.bashrc &&source ~/.bashrc && echo $PATH
   - export USE_CCACHE=1
   - sudo apt-get install aptitude
-  - sudo aptitude install build-essential git git-svn bc binfmt-support libllvm-3.6-ocaml-dev llvm-3.6 llvm-3.6-dev llvm-3.6-runtime cmake automake autogen autoconf autotools-dev libtool shtool python m4 gcc libtool zlib1g-dev
-  - Y
+  - sudo aptitude install build-essential git git-svn bc binfmt-support libllvm-3.6-ocaml-dev llvm-3.6 llvm-3.6-dev llvm-3.6-runtime cmake automake autogen autoconf autotools-dev libtool shtool python m4 gcc libtool zlib1g-dev -Y
   - cd ${HOME}
   - mkdir ~/bin
   - PATH=~/bin:$PATH
