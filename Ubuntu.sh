@@ -1,48 +1,49 @@
-sudo aptget update y
-sudo addaptrepository yes ppa:webupd8team/java
-sudo aptget install oraclejava9installer
-sudo apt install oraclejava9setdefault
-sudo aptget install libncurses5dev
-sudo aptget install gitcore gnupg flex bison gperf
+
+sudo apt-get update -y
+sudo add-apt-repository --yes ppa:webupd8team/java
+sudo apt-get install oracle-java9-installer
+sudo apt install oracle-java9-set-default
+sudo apt-get install libncurses5-dev
+sudo apt-get install git-core gnupg flex bison gperf
  
-sudo aptget install buildessential
-sudo aptget install zip
-sudo aptget install curl 
-sudo aptget install libc6dev
-sudo aptget install git gitsvn libncurses5dev:i386 
-sudo aptget install x11protocoredev libx11dev:i386 libreadline6dev:i386
-sudo aptget install libgl1mesaglx:i386 libgl1mesadev 
-sudo aptget install g++multilib tofrodos pythonmarkdown
-sudo aptget install libxml2utils xsltproc zlib1gdev:i386
-sudo  ln s /usr/lib/i386linuxgnu/mesa/libGL.so.1 /usr/lib/i386linuxgnu/libGL.so
-sudo aptget install y ccache &&echo 'export PATH="/usr/lib/ccache:$PATH"' | tee a ~/.bashrc &&source ~/.bashrc && echo $PATH
+sudo apt-get install build-essential
+sudo apt-get install zip
+sudo apt-get install curl 
+sudo apt-get install libc6-dev
+sudo apt-get install git git-svn libncurses5-dev:i386 
+sudo apt-get install x11proto-core-dev libx11-dev:i386 libreadline6-dev:i386
+sudo apt-get install libgl1-mesa-glx:i386 libgl1-mesa-dev 
+sudo apt-get install g++-multilib tofrodos python-markdown
+sudo apt-get install libxml2-utils xsltproc zlib1g-dev:i386
+sudo  ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so
+sudo apt-get install -y ccache &&echo 'export PATH="/usr/lib/ccache:$PATH"' | tee -a ~/.bashrc &&source ~/.bashrc && echo $PATH
 export USE_CCACHE=1
-sudo aptget install aptitude
-sudo aptitude y install buildessential bc binfmtsupport libllvm3.6ocamldev llvm3.6 llvm3.6dev llvm3.6runtime cmake automake autogen autoconf autotoolsdev libtool shtool python m4 gcc libtool zlib1gdev
+sudo apt-get install aptitude
+sudo aptitude -y install build-essential bc binfmt-support libllvm-3.6-ocaml-dev llvm-3.6 llvm-3.6-dev llvm-3.6-runtime cmake automake autogen autoconf autotools-dev libtool shtool python m4 gcc libtool zlib1g-dev
 cd ${HOME}
 PATH=~/bin:$PATH
-curl https://storage.googleapis.com/gitrepodownloads/repo > ~/bin/repo
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 chmod a+x ~/bin/repo
 mkdir dragon
 cd dragon
-yes "" | repo init u https://github.com/dragontc/DragonTC b master
-repo sync j2 c f
-
- 
+yes "" | repo init -u https://github.com/dragon-tc/DragonTC -b master
+repo sync -j2 -c -f
 
 
-
-git clone depth=50 branch=optlinaro7.x https://github.com/krasCGQ/aarch64linuxandroid $HOME/LINARO/
-
-git clone depth=50 branch=treble https://github.com/strakzkernel/Mido $HOME/SK
+# Download te toolchain
+git clone --depth=50 --branch=opt-linaro-7.x https://github.com/krasCGQ/aarch64-linux-android $HOME/LINARO/7.x
+# Download the Kernel Sources
+git clone --depth=50 --branch=treble https://github.com/strakzkernel/Mido $HOME/SK
   
+# Download the clang Source
+git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 clang
+# Download AnyKernel2
 
-git clone https://android.googlesource.com/platform/prebuilts/clang/host/linuxx86 clang
 export ARCH=arm64
 cd build
 ./7.0 opt
 cd ${HOME}/dragon
 git add .
-git commit m "dragon TC"
+git commit -m "dragon TC"
 git remote add origin https://github.com/strakzkernel/dtc.git
-git push u origin master
+git push -u origin master
